@@ -1,0 +1,32 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Virtual env
+.venv/
+
+# Env vars
+.env
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+
+# Vector DB
+chroma_db/
+
+# Logs
+*.log
+
+# Coverage
+.coverage
+htmlcov/
+
+# Cache
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
