@@ -11,7 +11,7 @@ class WebLoader(BaseLoader):
         response = requests.get(url)
         soup = BeautifulSoup(response.text, "html.parser")
 
-        for script in soup(["script", "style"]):
+        for script in soup(["script", "style", "header", "footer", "nav"]):
             script.extract()
 
         text = soup.get_text(separator=" ")
