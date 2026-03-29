@@ -8,6 +8,8 @@ dependencies = [
     "fastapi",
     "uvicorn[standard]",
     "pydantic",
+    "sentence-transformers",
+    "chromadb",
 ]
 
 [dependency-groups]
@@ -35,3 +37,7 @@ indent-style = "space"
 python_version = "3.11"
 strict = true
 ignore_missing_imports = true
+
+[tool.setuptools.packages.find]
+include = ["app*"]
+exclude = ["data*", "tests*", "scripts*"]
