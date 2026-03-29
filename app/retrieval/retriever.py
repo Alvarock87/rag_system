@@ -1,19 +1,20 @@
-from typing import List
-from app.embeddings.embedder import Embedder
-from app.vectorstore.chroma_store import ChromaStore
+from app.retrieval.hybrid_search import HybridSearch
+from app.retrieval.reranker import Reranker
 
 
-class HybridSearch:
+class Retriever:
 
     def __init__(self):
-        self.embedder = Embedder()
-        self.store = ChromaStore()
+        self.search = HybridSearch()
+        self.reranker = Reranker()
 
 
-    def search(self, query: str, k:int=10):
+    def retrieval(self, query:str, k: int = 5):
 
-        query_embedding = self.embedder.encode([query])[0]
+        results = self.search.search(query=query, k=10)
 
-        results = self.store.search(query_embedding, 5)
+        docs = results["documents"][0]
 
-        return results
+        ranked = self.reranker.rerank(query, docs)
+
+        return ranked[:k]
