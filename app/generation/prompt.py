@@ -1,10 +1,14 @@
-def build_prompt(query:str, context:str) -> str:
-
+def build_prompt(query: str, context: str) -> str:
     return f"""
-you're a helpful assitant.
+You are an expert assistant.
 
-Answer the questions based ONLY on the context below.
-If the answer is not in the context, say "i don't have enought knowedge to answer this"
+Answer the question using ONLY the context below.
+
+Rules:
+- Be precise and factual
+- If the answer is incomplete, summarize clearly
+- Do NOT copy text verbatim unless necessary
+- If you don't know, say "I don't know"
 
 Context:
 {context}
@@ -12,5 +16,5 @@ Context:
 Question:
 {query}
 
-Answer:
+Answer in a clear and complete sentence:
 """
