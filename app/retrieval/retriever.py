@@ -11,7 +11,7 @@ class Retriever:
 
     def retrieval(self, query:str, k: int = 5):
 
-        results = self.search.search(query=query, k=10)
+        results = self.search.search(query=query, k=20)
 
         docs = results["documents"][0]
 

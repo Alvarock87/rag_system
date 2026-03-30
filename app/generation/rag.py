@@ -6,7 +6,7 @@ from app.generation.prompt import build_prompt
 class RAG:
     def __init__(self):
         self.retriever = Retriever()
-        self.llm = LLM()
+        self.llm = LLM(model="llama3:instruct")
 
 
     def ask(self, query:str):
@@ -15,7 +15,7 @@ class RAG:
 
         docs = [doc for doc, _ in results]
 
-        context = "\n\n".join(docs)
+        context = "\n\n".join(docs[:3])
 
         promtp = build_prompt(query, context)
 
